@@ -10,7 +10,7 @@ const bootstrap = (app, express)=>
         origin: "*"
     }
     app.use(cors(corsOptions))
-    app.get("/", (req, res)=>{res.send("hello world");})
+    app.get("/", (req, res)=>{res.send("hello ");})
     app.use(express.json());
     app.use("/auth", authRouter)
     app.use("/user", userRouter)
