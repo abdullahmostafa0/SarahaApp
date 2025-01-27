@@ -11,7 +11,7 @@ emailEvent.on("sendEmail", async (data)=>{
     const emailToken = generateToken({payload: {email}, signature: process.env.EMAIL_SINGNATURE})
     const emailLink = `${process.env.FE_URL}/confirmEmail/${emailToken}`
     const html = generateEmailTemplates(emailLink)
-    sendEmail({to:email, subject:"Confirm Email", html})
+    await sendEmail({to:email, subject:"Confirm Email", html})
 
 })
 
