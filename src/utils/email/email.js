@@ -10,9 +10,7 @@ export const sendEmail = async ({ to = "", cc = "", bcc = "", subject = "Confirm
             user: process.env.EMAIL,
             pass: process.env.EMAIL_PASS,
         },
-        pool: true,
-        debug: true,
-        logger: true
+        pool: true
     });
     await new Promise((resolve, reject) => {
         transporter.verify((error, success) => {
