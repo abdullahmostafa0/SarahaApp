@@ -3,7 +3,7 @@ import nodemailer from "nodemailer"
 
 
 // async..await is not allowed in global scope, must use a wrapper
-export const sendEmail = async ({ to = "", cc = "", bcc = "", subject = "Confirm-Email", text = "", html = "", attachments = "" } = {}) => {
+export const sendEmail = ({ to = "", cc = "", bcc = "", subject = "Confirm-Email", text = "", html = "", attachments = "" } = {}) => {
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         auth: {
@@ -12,7 +12,7 @@ export const sendEmail = async ({ to = "", cc = "", bcc = "", subject = "Confirm
         },
     });
     // send mail with defined transport object
-    const info = await transporter.sendMail({
+    const info = transporter.sendMail({
         from: `"Saraha App" <${process.env.EMAIL}>`, // sender address
         to, // list of receivers
         cc,

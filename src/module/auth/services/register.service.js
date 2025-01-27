@@ -11,9 +11,6 @@ export const signup = asyncHandler(async (req, res, next)=>{
     
     const {userName, email, password, phone, confirmationPassword} = req.body
 
-    
-
-
     if (password != confirmationPassword)
     {
         return next(new Error("password and confirmationPassword mismatch", {cause:400}))
