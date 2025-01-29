@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 
 
 // async..await is not allowed in global scope, must use a wrapper
-export const sendEmail = ({ to = "", cc = "", bcc = "", subject = "Confirm-Email", text = "", html = "", attachments = "" } = {}) => {
+export const sendEmail = async ({ to = "", cc = "", bcc = "", subject = "Confirm-Email", text = "", html = "", attachments = "" } = {}) => {
     /*const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port:465,
@@ -36,7 +36,7 @@ export const sendEmail = ({ to = "", cc = "", bcc = "", subject = "Confirm-Email
 */
     const resend = new Resend('re_jEUgDbt6_GAsdpqShkyybm8JsaPCLiMBK');
 
-    resend.emails.send({
+    await resend.emails.send({
         from: "onboarding@resend.dev",
         to : to,
         subject: subject,
